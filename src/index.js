@@ -10,7 +10,7 @@ const sucess = val => {
 };
 const build = (scheme, host) => {
   const res = buildUrl(scheme, host, error, sucess);
-  return { res, ...error, ...sucess };
+  return res;
 };
 
 export default build;
