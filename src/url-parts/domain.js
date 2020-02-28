@@ -1,4 +1,4 @@
-import { left, right } from "../functionalUtil/either";
+import { left, right } from "../util/functionalUtil/either";
 
 /**
  * @description This returns the host name when valid

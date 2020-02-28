@@ -1,6 +1,6 @@
 import expect from "expect";
 import { getScheme } from "../../../url-parts/scheme";
-import { Right, Left } from "../../../functionalUtil/either-Monad";
+import { Right, Left } from "../../../util/functionalUtil/either-Monad";
 
 describe("Tests for Scheme", () => {
   const inValid = "unsecure";

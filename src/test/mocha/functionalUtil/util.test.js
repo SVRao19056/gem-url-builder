@@ -1,6 +1,6 @@
 import expect from "expect";
-import { validateWithRegEx } from "../../../functionalUtil/util";
-import { Left, Right } from "../../../functionalUtil/either-Monad";
+import { validateWithRegEx } from "../../../util/functionalUtil/util";
+import { Left, Right } from "../../../util/functionalUtil/either-Monad";
 
 describe("functionalUtil/util tests", () => {
   const testValues = [

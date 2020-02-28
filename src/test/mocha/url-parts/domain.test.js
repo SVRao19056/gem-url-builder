@@ -1,6 +1,6 @@
 import expect from "expect";
 import { buildDomain } from "../../../url-parts/domain";
-import { Left, Right } from "../../../functionalUtil/either-Monad";
+import { Left, Right } from "../../../util/functionalUtil/either-Monad";
 
 describe("Domain tests", () => {
   const testValues = ["12", "", null, undefined];

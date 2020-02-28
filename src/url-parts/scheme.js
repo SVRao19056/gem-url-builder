@@ -1,4 +1,4 @@
-import { left, right } from "../functionalUtil/either";
+import { left, right } from "../util/functionalUtil/either";
 
 const validTypes = ["secure", "insecure"];
 const typeMap = ["https", "http"];

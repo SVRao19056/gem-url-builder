@@ -1,6 +1,6 @@
 import expect from "expect";
-import { Left, Right } from "../../../functionalUtil/either-Monad";
-import { right, left } from "../../../functionalUtil/either";
+import { Left, Right } from "../../../util/functionalUtil/either-Monad";
+import { right, left } from "../../../util/functionalUtil/either";
 
 const fn = function test(val) {
   return typeof val === "string"
