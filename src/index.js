@@ -8,8 +8,8 @@ const sucess = val => {
   // console.log(`Right- sucess scenario ${val}`);
   return val;
 };
-const build = (scheme, host) => {
-  const res = buildUrl(scheme, host, [], error, sucess);
+const build = (scheme, host, UrlParameters) => {
+  const res = buildUrl(scheme, host, UrlParameters, error, sucess);
   return res;
 };
 

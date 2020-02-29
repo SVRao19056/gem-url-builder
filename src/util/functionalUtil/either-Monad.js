@@ -25,7 +25,11 @@ class Left {
     return `${this.getClassName()}(${str})`;
   }
 }
-
+/**
+ * @description This is one of  the foundation classes for the Either pattern. The approach adopted has been proposed by the below tutorial
+ * @tutiorial https://jrsinclair.com/articles/2019/elegant-error-handling-with-the-js-either-monad/
+ * @copyright  2020 James Sinclair.
+ */
 class Right {
   constructor(val) {
     this._val = val;

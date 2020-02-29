@@ -2,8 +2,10 @@ import { getScheme } from "../url-parts/scheme";
 import { buildDomain } from "../url-parts/domain";
 import { either, right, left } from "../util/functionalUtil/either";
 import { Right, Left } from "../util/functionalUtil/either-Monad";
+import { formatQueryString } from "./queryParamters";
+
 const extractData = (fn, key) => {
-  if (!fn instanceof Function) return { [key]: "null" };
+  if (!fn instanceof Function) return { [key]: null };
   return { [key]: fn().join() };
 };
 const getOutcome = res => {
@@ -54,10 +56,12 @@ const getOutcome = res => {
 const buildUrl = (
   schemeType,
   host,
-  queryParamters = [],
+  queryParamters = {},
   leftCallBck,
   rightCallBck
 ) => {
+  const urlParamMap = new Map(Object.entries(queryParamters));
+  formatQueryString(urlParamMap);
   let urlParts = {};
   const joinUrl = val => val;
   const scheme = getScheme(schemeType).join();
@@ -69,6 +73,7 @@ const buildUrl = (
     urlParts,
     extractData(buildDomain.bind(this, host), "domain")
   );
+
   // const url = scheme.map(joinUrl);
   const outcome = Object.values(urlParts).reduce((acc, index) => {
     // console.log(acc.constructor.name, index.constructor.name);
@@ -81,28 +86,10 @@ const buildUrl = (
       ? true
       : false;
   });
-
   const eitherObj = outcome ? new right(urlParts) : new left(urlParts);
   // console.log(eitherObj);
   either(leftCallBck, rightCallBck, eitherObj);
   return outcome;
-
-  //   const jRes = scheme.join();
-  // const eitherRes = either(leftCallBck, rightCallBck, urlParts["scheme"]);
-  // return getOutcome(urlParts);
-  /* const mRes = scheme.map(joinUrl);
-  const cRes = scheme.chain(joinUrl);
-  const eitherRes = either(leftCallBck, rightCallBck, urlParts["scheme"]);
-
-  return {
-    joinRes: scheme,
-    mapRes: mRes,
-    chainRes: cRes,
-    // rHost: rhost,
-    eRes: eitherRes,
-    urlParts: urlParts,
-    url: url
-  };*/
 };
 
 export { buildUrl };
