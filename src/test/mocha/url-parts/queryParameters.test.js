@@ -1,8 +1,8 @@
-import { formatQueryString } from "../../../url-parts/queryParamters";
+import { formatQueryString } from "../../../url-parts/queryParameters";
 import expect from "expect";
 
 describe("Query Paramter tests", () => {
-  it.skip("smoke tests", () => {
+  it("smoke tests", () => {
     const pObj = { t1: "t1", t2: 2, t3: false };
     const mapObj = new Map(Object.entries(pObj));
     const retVal = formatQueryString(mapObj);

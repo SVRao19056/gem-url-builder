@@ -1,9 +1,12 @@
 import { left, right } from "../util/functionalUtil/either";
-
 /**
+ * @module domain
+ */
+/**
+ * @function
  * @description This returns the host name
- * @returns when truthy a see [right]{@link right} and when falsely a see [left]{@link  left }
- * @notes it is recomended to use a regular expression composing with  see {@link validateWithRegEx}
+ * @summary it is recomended to use a regular expression composing with  {@link module:util}
+ * @returns return either  {@link module:either-Monad~Right} or {@link module:either-Monad~Left}
  * @param {String} host  This is the host name
  *
  */

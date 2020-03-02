@@ -1,13 +1,23 @@
+/**
+ *  @module url-parts
+ */
 import { getScheme } from "../url-parts/scheme";
 import { buildDomain } from "../url-parts/domain";
 import { either, right, left } from "../util/functionalUtil/either";
 import { Right, Left } from "../util/functionalUtil/either-Monad";
-import { formatQueryString } from "./queryParamters";
+import { formatQueryString } from "./queryParameters";
 
+/**
+ * @function
+ * @param {module:either-Monad~Right | module:either-Monad~Left } fn Expected Values are {@link module:either-Monad~Right Right} or |{@link module:either-Monad~Left Left}
+ * @param {String} key the property identifier for object segment
+ * @return {Object} with the key and the value in the  {@link module:either-Monad~Right Right} or {@link module:either-Monad~Left Left} function
+ */
 const extractData = (fn, key) => {
   if (!fn instanceof Function) return { [key]: null };
   return { [key]: fn().join() };
 };
+/*
 const getOutcome = res => {
   let resp = {};
   let leftFlg = false;
@@ -52,7 +62,15 @@ const getOutcome = res => {
   }
   return resp;
 };
-
+*/
+/**
+ * @function
+ * @param {*} schemeType
+ * @param {*} host
+ * @param {*} queryParamters
+ * @param {*} leftCallBck
+ * @param {*} rightCallBck
+ */
 const buildUrl = (
   schemeType,
   host,
@@ -60,8 +78,6 @@ const buildUrl = (
   leftCallBck,
   rightCallBck
 ) => {
-  const urlParamMap = new Map(Object.entries(queryParamters));
-  formatQueryString(urlParamMap);
   let urlParts = {};
   const joinUrl = val => val;
   const scheme = getScheme(schemeType).join();
@@ -73,21 +89,20 @@ const buildUrl = (
     urlParts,
     extractData(buildDomain.bind(this, host), "domain")
   );
-
-  // const url = scheme.map(joinUrl);
-  const outcome = Object.values(urlParts).reduce((acc, index) => {
-    // console.log(acc.constructor.name, index.constructor.name);
-    // console.log(
-    //   acc.constructor.name === index.constructor.name &&
-    //     new right("Right").constructor.name === "Right"
-    // );
-    return acc.constructor.name === index.constructor.name &&
-      new right("Right").constructor.name === "Right"
-      ? true
-      : false;
-  });
-  const eitherObj = outcome ? new right(urlParts) : new left(urlParts);
-  // console.log(eitherObj);
+  const urlParamMap = new Map(Object.entries(queryParamters));
+  if (urlParamMap.size > 0) {
+    urlParts = Object.assign(
+      urlParts,
+      extractData(formatQueryString.bind(this, urlParamMap), "queryParameters")
+    );
+  }
+  const outcomeSet = new Set(Object.values(urlParts));
+  const errorArr = [...outcomeSet].filter(x => x.constructor.name === "Left");
+  let outcome = errorArr.length === 0;
+  // let outcome = Object.values(urlParts).reduce((acc, item) => {
+  //   return acc && item.constructor.name === "Right" ? true : false;
+  // });
+  const eitherObj = outcome ? right(urlParts) : left(urlParts);
   either(leftCallBck, rightCallBck, eitherObj);
   return outcome;
 };
