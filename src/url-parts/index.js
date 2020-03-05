@@ -19,7 +19,9 @@ const processOutcome = outcome => payload => {
       )
     : payload.reduce(
         (acc, item, idx) =>
-          (acc = acc.concat(`Error  #${idx}-description${item._val}`)),
+          item instanceof Left
+            ? (acc = acc.concat(`Error #${idx}- Message = ${item._val}`))
+            : acc,
         ""
       );
 };

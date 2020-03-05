@@ -52,7 +52,6 @@ describe("build Url tests", () => {
       sucess => (sucessObj = sucess)
     );
     expect(res).toContain(`${expected[2]}`);
-    // expect(res).toBe("");
   });
 
   it(`smoke tests for build Url test Case ${testCases[2]} expected ${expected[2]}`, () => {
