@@ -50,26 +50,31 @@ describe("util - tests", () => {
 
     it("smoke tests", () => {
       expect(buildStr("key", "valu", "?")).toBeTruthy();
-      expect(buildStr("key", "valu", "?")).toBe("?key=valu");
+      expect(buildStr("key", "valu", "?")).toBeInstanceOf(Right);
+      expect(buildStr("key", "valu", "?")._val).toBe("?key=valu");
     });
     it("failure cases - invalid type", () => {
-      expect(buildStr(bool, "valu", "?")).toBeFalsy();
+      expect(buildStr(bool, "valu", "?")).toBeInstanceOf(Right);
+      expect(buildStr(bool, "valu", "?")._val).toBe("?true=valu");
+      //console.log(buildStr(bool, "valu", "?"));
     });
     it("failure cases - invalid type - 2nd param", () => {
-      expect(buildStr("aa", bool, "?")).toBeFalsy();
+      expect(buildStr("aa", bool, "?")).toBeInstanceOf(Right);
+      expect(buildStr(bool, "valu", "?")._val).toBe("?true=valu");
     });
     it("failure cases - invalid type - 3rd param", () => {
-      expect(buildStr("aa", "ddf", bool)).toBeFalsy();
+      expect(buildStr("aa", "ddf", bool)).toBeInstanceOf(Left);
+      expect(buildStr("aa", "ddf", bool)._val).toBe("Invalid prefix - true");
     });
     it("failure cases - invalid type - all params", () => {
-      expect(buildStr(bool, bool, bool)).toBeFalsy();
+      expect(buildStr(bool, bool, bool)).toBeInstanceOf(Left);
     });
   });
 
   describe("Validate function buildQueryString", () => {
     it("buildQueryString smoke tests", () => {
       expect(buildQueryString(testObj)).toBeTruthy();
-      expect(buildQueryString(testObj)).toBe("?t1=t1&t2=t2");
+      expect(buildQueryString(testObj)._val).toBe("?t1=t1&t2=t2");
     });
   });
 });

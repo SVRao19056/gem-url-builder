@@ -20,6 +20,6 @@ const formatQueryString = param => {
       "Formating query string failed . Invalid type passed a parameter"
     );
   //TODO: identify error scenarios . at present errors will return empty string
-  return right(buildQueryString(paramObj));
+  return buildQueryString(paramObj);
 };
 export { formatQueryString };

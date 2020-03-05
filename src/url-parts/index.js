@@ -7,6 +7,22 @@ import { either, right, left } from "../util/functionalUtil/either";
 import { Right, Left } from "../util/functionalUtil/either-Monad";
 import { formatQueryString } from "./queryParameters";
 
+const processOutcome = outcome => payload => {
+  return outcome
+    ? payload.reduce(
+        (acc, item, idx) =>
+          (acc =
+            idx === 0
+              ? acc.concat(`${item._val}`, "://")
+              : acc.concat(`${item._val}`)),
+        ""
+      )
+    : payload.reduce(
+        (acc, item, idx) =>
+          (acc = acc.concat(`Error  #${idx}-description${item._val}`)),
+        ""
+      );
+};
 /**
  * @function
  * @param {module:either-Monad~Right | module:either-Monad~Left } fn Expected Values are {@link module:either-Monad~Right Right} or |{@link module:either-Monad~Left Left}
@@ -17,52 +33,6 @@ const extractData = (fn, key) => {
   if (!fn instanceof Function) return { [key]: null };
   return { [key]: fn().join() };
 };
-/*
-const getOutcome = res => {
-  let resp = {};
-  let leftFlg = false;
-  let rightFlag = false;
-  if (!res instanceof Object) return res;
-
-  for (let key in res) {
-    if (!res[key].constructor.name) return resp;
-    switch (res[key].constructor.name) {
-      case "Left": {
-        resp = Object.assign(resp, {
-          [key]: {
-            value: res[key],
-            leftFlag: true,
-            rightFlg: false
-          }
-        });
-        break;
-      }
-      case "Right": {
-        resp = Object.assign(resp, {
-          [key]: {
-            value: res[key],
-            leftFlag: false,
-            rightFlg: true
-          }
-        });
-        break;
-      }
-      default: {
-        resp = Object.assign(resp, {
-          [key]: {
-            value: res[key],
-            leftFlag: false,
-            rightFlg: false,
-            error: res[key].prototype.constructor
-          }
-        });
-        break;
-      }
-    }
-  }
-  return resp;
-};
-*/
 /**
  * @function
  * @param {*} schemeType
@@ -71,13 +41,7 @@ const getOutcome = res => {
  * @param {*} leftCallBck
  * @param {*} rightCallBck
  */
-const buildUrl = (
-  schemeType,
-  host,
-  queryParamters = {},
-  leftCallBck,
-  rightCallBck
-) => {
+const buildUrl = (schemeType, host, queryParamters = {}) => {
   let urlParts = {};
   const joinUrl = val => val;
   const scheme = getScheme(schemeType).join();
@@ -99,12 +63,13 @@ const buildUrl = (
   const outcomeSet = new Set(Object.values(urlParts));
   const errorArr = [...outcomeSet].filter(x => x.constructor.name === "Left");
   let outcome = errorArr.length === 0;
-  // let outcome = Object.values(urlParts).reduce((acc, item) => {
-  //   return acc && item.constructor.name === "Right" ? true : false;
+  const payload = Object.values(urlParts);
+
+  // let final = Object.values(urlParts).reduce((acc, item) => {
+  //   return acc._val.concat(item._val);
   // });
-  const eitherObj = outcome ? right(urlParts) : left(urlParts);
-  either(leftCallBck, rightCallBck, eitherObj);
-  return outcome;
+
+  return processOutcome(outcome)(payload);
 };
 
 export { buildUrl };

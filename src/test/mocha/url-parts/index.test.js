@@ -31,12 +31,7 @@ describe("build Url tests", () => {
       sucess => (sucessObj = sucess)
     );
     // console.log(sucessObj);
-    expect(Object.keys(sucessObj).includes("scheme")).toBe(true);
-    expect(Object.keys(sucessObj).includes("domain")).toBe(true);
-    expect(sucessObj["scheme"]._val).toBe(expected[0]);
-    expect(sucessObj["domain"]._val).toBe(validDomain);
-    // expect(sucessObj).toBe(expected[0]);
-    // expect(errMsg).toBe("");
+    expect(res).toBe(`${expected[0]}://${validDomain}`);
   });
   it(`smoke tests for build Url test Case ${testCases[1]} expected ${expected[1]}`, () => {
     const res = buildUrl(
@@ -46,25 +41,9 @@ describe("build Url tests", () => {
       err => (errorObj = err),
       sucess => (sucessObj = sucess)
     );
-    expect(Object.keys(sucessObj).includes("scheme")).toBe(true);
-    expect(Object.keys(sucessObj).includes("domain")).toBe(true);
-    expect(sucessObj["scheme"]._val).toBe(expected[1]);
-    expect(sucessObj["domain"]._val).toBe(validDomain);
+    expect(res).toBe(`${expected[1]}://${validDomain}`);
   });
-  it(`smoke tests for build Url test Case ${testCases[1]} expected instance of Right`, () => {
-    const res = buildUrl(
-      testCases[1],
-      validDomain,
-      [],
-      err => (errorObj = err),
-      sucess => (sucessObj = sucess)
-    );
-    expect(Object.keys(sucessObj).includes("scheme")).toBe(true);
-    expect(Object.keys(sucessObj).includes("domain")).toBe(true);
-    expect(sucessObj["scheme"]).toBeInstanceOf(Right);
-    expect(sucessObj["domain"]._val).toBe(validDomain);
-  });
-  it(`smoke tests for build Url test Case ${testCases[2]} expected Instance of left | Test Scenario ${testScenario[2][0]} `, () => {
+  it(`smoke tests for build Url test Case ${testCases[2]} Test Scenario ${testScenario[2][0]} `, () => {
     const res = buildUrl(
       testCases[2],
       validDomain,
@@ -72,32 +51,10 @@ describe("build Url tests", () => {
       err => (errorObj = err),
       sucess => (sucessObj = sucess)
     );
-    // console.log(res, sucessObj, errorObj);
-    expect(Object.keys(errorObj).includes("scheme")).toBe(true);
-    expect(Object.keys(errorObj).includes("domain")).toBe(true);
-    expect(res).toBe(false);
-    expect(errorObj["scheme"]).toBeInstanceOf(Left);
-    expect(errorObj["scheme"]._val).toBe(expected[2]);
-    // expect(errorObj["domain"]).toBeInstanceOf(Right);
-    // expect(errorObj["domain"]._val).toBe(validDomain);
+    expect(res).toContain(`${expected[2]}`);
+    // expect(res).toBe("");
   });
-  it(`smoke tests for build Url test Case ${testCases[2]} expected Instance of left | Test Scenario ${testScenario[2][1]}  `, () => {
-    const res = buildUrl(
-      testCases[2],
-      validDomain,
-      [],
-      err => (errorObj = err),
-      sucess => (sucessObj = sucess)
-    );
-    //  console.log(res, sucessObj, errorObj);
-    expect(Object.keys(errorObj).includes("scheme")).toBe(true);
-    expect(Object.keys(errorObj).includes("domain")).toBe(true);
-    expect(res).toBe(false);
-    // expect(errorObj["scheme"]).toBeInstanceOf(Left);
-    // expect(errorObj["scheme"]._val).toBe(expected[2]);
-    expect(errorObj["domain"]).toBeInstanceOf(Right);
-    expect(errorObj["domain"]._val).toBe(validDomain);
-  });
+
   it(`smoke tests for build Url test Case ${testCases[2]} expected ${expected[2]}`, () => {
     const res = buildUrl(
       testCases[2],
@@ -106,12 +63,7 @@ describe("build Url tests", () => {
       err => (errorObj = err),
       sucess => (sucessObj = sucess)
     );
-    expect(Object.keys(errorObj).includes("scheme")).toBe(true);
-    expect(Object.keys(errorObj).includes("domain")).toBe(true);
-    expect(errorObj["scheme"]).toBeInstanceOf(Left);
-    expect(errorObj["scheme"]._val).toBe(expected[2]);
-    expect(errorObj["domain"]).toBeInstanceOf(Right);
-    expect(errorObj["domain"]._val).toBe(validDomain);
-    expect(res).toBe(false);
+
+    expect(res).toContain(`${expected[2]}`);
   });
 });
