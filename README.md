@@ -5,7 +5,7 @@ This is an utility to build an url leveraging functional programming approaches
 # Intended Usage
 
 This is to show case a real life production package with all the bells and whistles required for a production ready release.
-For instance
+For instance this includes features listed below.
 
 - Manage configuration across various environments
 - Extensive Quality checks with unit tests
@@ -13,6 +13,8 @@ For instance
 
 **This is to meet the need for a production ready approach rather than just a bare bones tutorial meant to demostrate the concepts.**
 Generally the most chalenges are encountered when a real life production release is attempted.
+
+# Features included
 
 ## Unit Tests
 
@@ -38,8 +40,17 @@ This feature is implemented leveraging [cross-env npm package](https://www.npmjs
 
 [Managing environment variables in Nodejs and Modern JS apps](https://medium.com/dubizzletechblog/managing-environment-variables-in-nodejs-and-modern-js-apps-608003f4686c)
 
-# JSDocs documentation
+## JSDocs documentation
 
-to generate JSDocs documentation use this command jsdoc src -r -d docs
+To generate JSDocs documentation run below command in the terminal
 
-NOTE JSDoc is required . (npm i jsdoc --save-dev)
+> jsdoc src -r -d docs
+> ![ Package Documentation](./readme-images/JS-Documentation.JPG?raw=true)
+
+### References
+
+[JsDoc](https://github.com/jsdoc/jsdoc)
+
+# Acknowledgements
+
+This is an adaptation of the orginal code authored by [James Sinclair](https://jrsinclair.com/articles/2019/elegant-error-handling-with-the-js-either-monad/)
