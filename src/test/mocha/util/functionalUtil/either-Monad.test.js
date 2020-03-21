@@ -74,7 +74,7 @@ describe("Left and Right quality checks", () => {
   describe("Validate the Right map function", () => {
     let rightObj = null;
     const rtMsg = "Right";
-    beforeEach("set up the prerequites", () => {
+    beforeEach(() => {
       rightObj = new Right(rtMsg);
     });
     it("validate map happy path", () => {
@@ -98,7 +98,7 @@ describe("Left and Right quality checks", () => {
   describe("Validate the Right chain function", () => {
     let rightObj = null;
     const rtMsg = "Right";
-    beforeEach("set up the prerequites", () => {
+    beforeEach(() => {
       rightObj = new Right(rtMsg);
     });
     it("validate chain happy path", () => {
