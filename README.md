@@ -45,7 +45,8 @@ This feature is implemented leveraging [cross-env npm package](https://www.npmjs
 To generate JSDocs documentation run below command in the terminal
 
 > jsdoc src -r -d docs
-> ![ Package Documentation](./readme-images/JS-Documentation.JPG?raw=true)
+
+![ Package Documentation](./readme-images/JS-Documentation.JPG?raw=true)
 
 ### References
 
