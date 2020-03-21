@@ -64,4 +64,5 @@ This is an adaptation of the orginal code authored by [James Sinclair](https://j
 1. [babel](https://babeljs.io/en/setup#installation)
 1. [webpack](https://webpack.js.org/)
 1. [JsDoc](https://github.com/jsdoc/jsdoc)
+1. [cross-env](https://www.npmjs.com/package/cross-env)
 1. [© 2020 James Sinclair](https://jrsinclair.com/articles/2019/elegant-error-handling-with-the-js-either-monad/)
