@@ -16,7 +16,6 @@ Generally the most chalenges are encountered when a real life production release
 
 ## Unit Tests
 
-Includes unit tests see image
 ![Unit Tests Screenshot](./readme-images/unit-tests.JPG?raw=true "Unit Tests Screenshot")
 
 ## Test Coverage Report
@@ -33,9 +32,11 @@ On the on the root folder run this command in the terminal see image below
 
 ## Environment Variables
 
-This feature is implemented leveraging ![cross-env npm package](https://www.npmjs.com/package/cross-env)
+This feature is implemented leveraging [cross-env npm package](https://www.npmjs.com/package/cross-env)
 
-![see ](https://medium.com/dubizzletechblog/managing-environment-variables-in-nodejs-and-modern-js-apps-608003f4686c)
+### Other Related References
+
+[Managing environment variables in Nodejs and Modern JS apps](https://medium.com/dubizzletechblog/managing-environment-variables-in-nodejs-and-modern-js-apps-608003f4686c)
 
 # JSDocs documentation
 
