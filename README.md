@@ -11,6 +11,9 @@ For instance this includes features listed below.
 - Extensive Quality checks with unit tests
 - Monitor and Attest the Code Quality with code coverage which is one of the prerecquistes for a sucessful agile shop.
 
+* Integrate with [babel](https://babeljs.io/en/setup#installation) to permit ES 2016 features.
+* Integrate with [webpack](https://webpack.js.org/) for deployment.
+
 **This is to meet the need for a production ready approach rather than just a bare bones tutorial meant to demostrate the concepts.**
 Generally the most chalenges are encountered when a real life production release is attempted.
 
@@ -55,3 +58,10 @@ To generate JSDocs documentation run below command in the terminal
 # Acknowledgements
 
 This is an adaptation of the orginal code authored by [James Sinclair](https://jrsinclair.com/articles/2019/elegant-error-handling-with-the-js-either-monad/)
+
+# References
+
+1. [babel](https://babeljs.io/en/setup#installation)
+1. [webpack](https://webpack.js.org/)
+1. [JsDoc](https://github.com/jsdoc/jsdoc)
+1. [© 2020 James Sinclair](https://jrsinclair.com/articles/2019/elegant-error-handling-with-the-js-either-monad/)
