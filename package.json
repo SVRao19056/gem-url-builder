@@ -25,19 +25,20 @@
     "babel-loader": "^8.0.6",
     "cross-env": "^7.0.0",
     "expect": "^25.1.0",
-    "istanbul": "^0.4.5",
     "jasmine": "^3.5.0",
     "jasmine-console-reporter": "^3.1.0",
     "jasmine-node": "^3.0.0",
     "jasmine-supertest": "^1.0.0",
     "jest": "^25.1.0",
     "jsdoc": "^3.6.3",
-    "mocha": "^7.0.1",
+    "jsdoc-to-markdown": "^5.0.3",
+    "mocha": "^7.1.1",
     "nodemon": "^2.0.2",
+    "nyc": "^15.0.0",
     "supertest": "^4.0.2",
-    "webpack": "^4.41.5",
+    "webpack": "^4.42.0",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.3"
   },
   "jest": {
     "testEnvironment": "node",
@@ -48,5 +49,8 @@
     "coverageReporters": [
       "html"
     ]
+  },
+  "dependencies": {
+    "minimist": "^1.2.5"
   }
 }

@@ -2,6 +2,10 @@
 
 This is an utility to build an url leveraging functional programming approaches
 
+# Disclaimer
+
+This package has not been veiwed through a security and performance lens. This does not claim to be production ready . There are some aspects only that is production ready. This probably will not satisfy the functional programming purists.My justification is that this is a learning process for me and any critical assesment is welcome
+
 # Intended Usage
 
 This is to show case a real life production package with all the bells and whistles required for a production ready release.
@@ -11,11 +15,13 @@ For instance this includes features listed below.
 - Extensive Quality checks with unit tests
 - Monitor and Attest the Code Quality with code coverage which is one of the prerecquistes for a sucessful agile shop.
 
-* Integrate with [babel](https://babeljs.io/en/setup#installation) to permit ES 2016 features.
-* Integrate with [webpack](https://webpack.js.org/) for deployment.
+* Integrated with [babel](https://babeljs.io/en/setup#installation) to permit ES 2016 features.
+* Integrated with [webpack](https://webpack.js.org/) for deployment.
 
 **This is to meet the need for a production ready approach rather than just a bare bones tutorial meant to demostrate the concepts.**
-Generally the most chalenges are encountered when a real life production release is attempted.
+However not this is not yet production ready . There are a number of prerequites that are missing. The intent is to provide approaches to some of chalenges that are encountered when a real life production release is attempted.
+
+# Architecture Review
 
 # Features included
 
@@ -58,6 +64,12 @@ To generate JSDocs documentation run below command in the terminal
 # Acknowledgements
 
 This is an adaptation of the orginal code authored by [James Sinclair](https://jrsinclair.com/articles/2019/elegant-error-handling-with-the-js-either-monad/)
+
+# Pending To Do List
+
+- [] Security Review
+- [] Performance Review
+- [] Compilance with well known Functional Programming industry standards
 
 # References
 
