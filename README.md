@@ -28,7 +28,7 @@ This has been inspired by [© 2020 James Sinclair](https://jrsinclair.com/articl
 ## Background Information
 
 This implements elegant error handlying leveraging the Either Monad .The well known industry recomendation is for the application to fail gracefully and provide the consumer/user with an useful message. Generally the solution proposed is cascading try catch blocks in the [imperative programming paradigm](https://en.wikipedia.org/wiki/Imperative_programming) .
-IMHO I prefer the functional programming paradigm](https://en.wikipedia.org/wiki/Functional_programming). In this paradigm the prescribed approach is all function require to be [pure](https://en.wikipedia.org/wiki/Pure_function) There is an ongoing debate but one opinion is that throwing an exception inside the function renders it impure see [here](https://stackoverflow.com/a/12345665).I agree to this point of view since it no longer is allways deterministic.In some cases there are unintended [side effect](<https://en.wikipedia.org/wiki/Side_effect_(computer_science)>).
+IMHO I prefer the [functional programming paradigm](https://en.wikipedia.org/wiki/Functional_programming). In this paradigm the prescribed approach is all functions require to be [pure](https://en.wikipedia.org/wiki/Pure_function) There is an ongoing debate but one opinion is that throwing an exception inside the function renders it impure see [here](https://stackoverflow.com/a/12345665).I agree to this point of view since it no longer is allways deterministic.In some cases there are unintended [side effect](<https://en.wikipedia.org/wiki/Side_effect_(computer_science)>).
 
 ## High level Philosophy
 
