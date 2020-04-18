@@ -1,6 +1,6 @@
 {
   "name": "@soft-treasures/gem-url-builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This is an utility to build an url leveraging functional programming  approaches",
   "main": "src/index.js",
   "scripts": {
@@ -19,24 +19,24 @@
   },
   "homepage": "https://github.com/SVRao19056/gem-url-builder#readme",
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/register": "^7.8.3",
-    "babel-loader": "^8.0.6",
-    "cross-env": "^7.0.0",
-    "expect": "^25.1.0",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/register": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "expect": "^25.3.0",
     "jasmine": "^3.5.0",
     "jasmine-console-reporter": "^3.1.0",
     "jasmine-node": "^3.0.0",
     "jasmine-supertest": "^1.0.0",
-    "jest": "^25.1.0",
-    "jsdoc": "^3.6.3",
+    "jest": "^25.3.0",
+    "jsdoc": "^3.6.4",
     "jsdoc-to-markdown": "^5.0.3",
     "mocha": "^7.1.1",
-    "nodemon": "^2.0.2",
-    "nyc": "^15.0.0",
+    "nodemon": "^2.0.3",
+    "nyc": "^15.0.1",
     "supertest": "^4.0.2",
-    "webpack": "^4.42.0",
+    "webpack": "^4.42.1",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.3"
   },
@@ -52,5 +52,14 @@
   },
   "dependencies": {
     "minimist": "^1.2.5"
-  }
+  },
+  "keywords": [
+    "babel",
+    "webpack",
+    "jsdoc",
+    "cross-env",
+    "jest",
+    "mocha",
+    "expect"
+  ]
 }
